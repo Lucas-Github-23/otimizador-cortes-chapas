@@ -1,5 +1,3 @@
-// src/hooks/useOptimizer.ts
-
 import { useState, useCallback, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import type { Sheet, Piece, OptimizationResult, HeuristicMethod } from '../types/types';

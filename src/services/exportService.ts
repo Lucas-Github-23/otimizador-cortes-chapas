@@ -1,5 +1,3 @@
-// src/services/exportService.ts
-
 import type { OptimizationResult } from '../types/types';
 import jsPDF from 'jspdf';
 

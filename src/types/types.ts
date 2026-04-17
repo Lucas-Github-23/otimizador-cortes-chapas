@@ -1,5 +1,3 @@
-// src/types/types.ts
-
 export interface Sheet {
   width: number;
   height: number;

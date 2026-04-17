@@ -1,6 +1,3 @@
-// src/services/optimizerService.ts
-
-// ADICIONADO O 'type' NA IMPORTAÇÃO
 import type { Sheet, Piece, PlacedPiece, Bin, OptimizationResult, HeuristicMethod } from '../types/types';
 
 interface Rect {
