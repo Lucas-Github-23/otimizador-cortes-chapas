@@ -6,10 +6,10 @@ import type { Sheet, Piece, OptimizationResult, HeuristicMethod } from '../types
 import { calculateOptimization } from '../services/optimizerService';
 
 export function useOptimizer() {
-  // Inicializa o estado a tentar ler do LocalStorage, ou usa os valores por defeito
   const [sheet, setSheet] = useState<Sheet>(() => {
     const saved = localStorage.getItem('otimizador_sheet');
-    return saved ? JSON.parse(saved) : { width: 2750, height: 1830 };
+    // MUDANÇA: Valor padrão agora é 5000x1500
+    return saved ? JSON.parse(saved) : { width: 5000, height: 1500 };
   });
 
   const [pieces, setPieces] = useState<Piece[]>(() => {
@@ -20,7 +20,6 @@ export function useOptimizer() {
   const [method, setMethod] = useState<HeuristicMethod>('BottomLeftDecreasing');
   const [result, setResult] = useState<OptimizationResult | null>(null);
 
-  // Efeito para guardar automaticamente no LocalStorage sempre que a chapa ou peças mudarem
   useEffect(() => {
     localStorage.setItem('otimizador_sheet', JSON.stringify(sheet));
   }, [sheet]);
@@ -55,33 +54,23 @@ export function useOptimizer() {
     const valid = pieces.filter(p => p.width > 0 && p.height > 0 && p.quantity > 0);
     
     if (valid.length === 0) {
-      return alert('Adicione pelo menos uma peça válida com dimensões e quantidade maiores que 0.');
+      return alert('Adicione pelo menos uma peça válida.');
     }
 
-    // Validação: Verificar se alguma peça é estritamente maior que a chapa
     const invalidPieces = valid.filter(p => 
       (p.width > sheet.width || p.height > sheet.height) && 
-      (p.width > sheet.height || p.height > sheet.width) // Verifica também a rotação
+      (p.width > sheet.height || p.height > sheet.width)
     );
 
     if (invalidPieces.length > 0) {
-      return alert('Erro: Existem peças maiores que a dimensão da chapa. Corrija as medidas antes de calcular.');
+      return alert('Erro: Existem peças maiores que a chapa.');
     }
 
     setResult(calculateOptimization(sheet, valid, method));
   }, [sheet, pieces, method]);
 
   return { 
-    sheet, 
-    updateSheet, 
-    pieces, 
-    addPiece, 
-    updatePiece, 
-    removePiece, 
-    clearAllPieces,
-    method, 
-    updateMethod, 
-    result, 
-    calculate 
+    sheet, updateSheet, pieces, addPiece, updatePiece, removePiece, clearAllPieces,
+    method, updateMethod, result, calculate 
   };
 }
