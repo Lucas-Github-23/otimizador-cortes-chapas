@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Otimizador de Cortes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web moderna e multiplataforma desenvolvida para otimizar o aproveitamento de materiais em processos de corte de chapas (MDF, vidro, metal, etc). O sistema calcula o melhor layout de encaixe para peças retangulares, minimizando o desperdício de matéria-prima e gerando relatórios precisos.
 
-Currently, two official plugins are available:
+## Principais Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Múltiplos Algoritmos de Otimização:**
+  * **Bottom-left Decreasing (Padrão):** Rápido e eficiente para a maioria dos casos.
+  * **MaxRects Smallest-Side-Fit:** Focado no máximo aproveitamento matemático do espaço.
+  * **Skyline Bottom-left:** Mantém um alinhamento mais uniforme, excelente para padrões de veios de madeira.
+* **Visualização Gráfica em Tempo Real:** Renderização vetorial e escalável do plano de corte diretamente no navegador.
+* **Exportação Profissional:**
+  * **PDF:** Geração de Mapa de Corte paginado com escala inteligente.
+  * **DXF:** Arquivo pronto para importação em softwares CAD (como AutoCAD) e máquinas CNC.
+  * **SVG:** Exportação em vetor puro para visualização e edição web.
+* **Persistência de Dados (Auto-Save):** As configurações da chapa e a lista de peças são salvas automaticamente no navegador para evitar perdas acidentais.
+* **Prevenção de Erros:** Validação em tempo real que impede o cálculo de peças fisicamente maiores que a dimensão da chapa.
 
-## React Compiler
+## Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Frontend:** React + Vite
+* **Linguagem:** TypeScript
+* **Ícones:** Lucide React
+* **Geração de PDF:** jsPDF
+* **Identificadores Únicos:** UUID
+* **Hospedagem Recomendada:** Vercel
 
-## Expanding the ESLint configuration
+## Como Rodar o Projeto Localmente
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Pré-requisitos
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Instalação
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone o repositório:
+```bash
+git clone [https://github.com/SEU_USUARIO/otimizador-cortes-chapas.git](https://github.com/SEU_USUARIO/otimizador-cortes-chapas.git)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Entre no diretório do projeto:
+```bash
+cd otimizador-cortes-chapas
 ```
+
+3. Instale as dependências:
+```bash
+npm install
+```
+
+4. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+5. Abra o navegador e acesse: `http://localhost:5173`
+
+## Estrutura do Projeto
+
+O código foi desenhado seguindo princípios de Clean Code e separação de responsabilidades (SOLID):
+
+* `/src/components`: Componentes visuais do React (Interface, Listas, Visualizador SVG).
+* `/src/hooks`: Lógica de gerenciamento de estado da interface (`useOptimizer`).
+* `/src/services`: Núcleo de regras de negócio (Motores matemáticos de otimização e lógicas de exportação).
+* `/src/types`: Interfaces TypeScript rigorosas para as entidades do sistema.
+
+## Licença
+
+Este projeto foi desenvolvido como uma solução de código aberto para facilitar o dia a dia de marceneiros, projetistas e engenheiros. Sinta-se livre para clonar, modificar e utilizar.
