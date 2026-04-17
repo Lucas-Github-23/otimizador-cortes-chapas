@@ -63,6 +63,12 @@ O código foi desenhado seguindo princípios de Clean Code e separação de resp
 * `/src/services`: Núcleo de regras de negócio (Motores matemáticos de otimização e lógicas de exportação).
 * `/src/types`: Interfaces TypeScript rigorosas para as entidades do sistema.
 
+## Contato
+
+Se tiver alguma dúvida, sugestão ou quiser falar sobre o projeto, sinta-se à vontade para entrar em contacto:
+
+* **LinkedIn:** [Lucas - Lucas Gabriel de Oliveira Pereira](https://www.linkedin.com/in/lucas-pereira-521082279/)
+
 ## Licença
 
 Este projeto foi desenvolvido como uma solução de código aberto para facilitar o dia a dia de marceneiros, projetistas e engenheiros. Sinta-se livre para clonar, modificar e utilizar.
