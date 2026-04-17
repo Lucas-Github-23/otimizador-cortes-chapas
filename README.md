@@ -65,7 +65,7 @@ O código foi desenhado seguindo princípios de Clean Code e separação de resp
 
 ## Contato
 
-Se tiver alguma dúvida, sugestão ou quiser falar sobre o projeto, sinta-se à vontade para entrar em contacto:
+Se tiver alguma dúvida, sugestão ou quiser falar sobre o projeto, sinta-se à vontade para entrar em contato:
 
 * **LinkedIn:** [Lucas - Lucas Gabriel de Oliveira Pereira](https://www.linkedin.com/in/lucas-pereira-521082279/)
 
