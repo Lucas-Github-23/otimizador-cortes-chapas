@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface SheetConfigProps {
   width: number;
   height: number;

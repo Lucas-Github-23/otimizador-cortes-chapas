@@ -1,7 +1,3 @@
-// src/components/Visualizer.tsx
-
-import React from 'react';
-// ADICIONADO O 'type' NA IMPORTAÇÃO
 import type { OptimizationResult } from '../types/types';
 import { getColorFromString } from '../utils/colorUtils';
 

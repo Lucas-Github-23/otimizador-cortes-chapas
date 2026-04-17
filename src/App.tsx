@@ -1,6 +1,3 @@
-// src/App.tsx
-
-import React from 'react';
 import { useOptimizer } from './hooks/useOptimizer';
 import SheetConfig from './components/SheetConfig';
 import PieceList from './components/PieceList';

@@ -1,6 +1,3 @@
-// src/components/PieceList.tsx
-
-import React from 'react';
 import { Trash2, XCircle, PlusCircle } from 'lucide-react';
 import type { Piece, Sheet } from '../types/types';
 
